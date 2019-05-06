@@ -31,6 +31,7 @@ const AppStateHOC = function (WrappedComponent, localesOnly) {
             let enhancer;
 
             let initializedLocales = localesInitialState;
+            // 自动获取当前语言版本
             const locale = detectLocale(Object.keys(locales));
             if (locale !== 'en') {
                 initializedLocales = initLocale(initializedLocales, locale);
@@ -56,6 +57,7 @@ const AppStateHOC = function (WrappedComponent, localesOnly) {
                 const {ScratchPaintReducer} = require('scratch-paint');
 
                 let initializedGui = guiInitialState;
+                // 在redux外层做这个判断减少多余的初始化处理
                 if (props.isFullScreen || props.isPlayerOnly) {
                     if (props.isFullScreen) {
                         initializedGui = initFullScreen(initializedGui);
