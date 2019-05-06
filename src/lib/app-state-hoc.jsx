@@ -86,9 +86,11 @@ const AppStateHOC = function (WrappedComponent, localesOnly) {
         }
         componentDidUpdate (prevProps) {
             if (localesOnly) return;
+            // 编辑模式和播放模式切换
             if (prevProps.isPlayerOnly !== this.props.isPlayerOnly) {
                 this.store.dispatch(setPlayer(this.props.isPlayerOnly));
             }
+            // 全屏切换
             if (prevProps.isFullScreen !== this.props.isFullScreen) {
                 this.store.dispatch(setFullScreen(this.props.isFullScreen));
             }
