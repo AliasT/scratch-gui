@@ -397,11 +397,14 @@ const doneCreatingProject = (id, loadingState) => {
 
 const onFetchedProjectData = (projectData, loadingState) => {
     switch (loadingState) {
+    // 根据id获取scratch文件包
     case LoadingState.FETCHING_WITH_ID:
         return {
             type: DONE_FETCHING_WITH_ID,
             projectData: projectData
         };
+
+    // 获取默认的文件包
     case LoadingState.FETCHING_NEW_DEFAULT:
         return {
             type: DONE_FETCHING_DEFAULT,

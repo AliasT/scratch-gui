@@ -54,9 +54,11 @@ class GUI extends React.Component {
         this.props.onStorageInit(storage);
     }
     componentDidUpdate (prevProps) {
+        // projectId 发生变化
         if (this.props.projectId !== prevProps.projectId && this.props.projectId !== null) {
             this.props.onUpdateProjectId(this.props.projectId);
         }
+        // 作品标题发生变化
         if (this.props.projectTitle !== prevProps.projectTitle) {
             this.setReduxTitle(this.props.projectTitle);
         }
