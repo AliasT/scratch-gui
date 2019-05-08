@@ -86,6 +86,7 @@ class LibraryItem extends React.PureComponent {
         return this.props.iconMd5;
     }
     render () {
+        // 如果library-item没有baseLayerMD5活着没有md5就使用绝对地址
         const iconMd5 = this.curIconMd5();
         const iconURL = iconMd5 ?
             `https://cdn.assets.scratch.mit.edu/internalapi/asset/${iconMd5}/get/` :
