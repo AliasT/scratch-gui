@@ -29,6 +29,7 @@ class SpriteLibrary extends React.PureComponent {
         // Randomize position of library sprite
         randomizeSpritePosition(item);
         this.props.vm.addSprite(JSON.stringify(item.json)).then(() => {
+            // 将gui tab恢复到代码tab
             this.props.onActivateBlocksTab();
         });
     }
